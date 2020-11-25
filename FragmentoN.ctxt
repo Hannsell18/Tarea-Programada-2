@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.target=FragmentoN
+comment0.text=\r\n\ Se\ encarga\ de\ tener\ los\ atributos\ de\ cada\ fragmento\ dentro\ de\ un\ respectivo\ parentesis.\ [(FRAGMENTO)(FRAGEMENTO)]\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [ECUACI\u00D3N]\r\n\ @author\ (your\ name)\ \r\n\ @version\ 15/11/2020\r\n
+comment1.params=incognita\ valor\ potencia
+comment1.target=FragmentoN(java.lang.String,\ int,\ int)
+comment2.params=
+comment2.target=java.lang.String\ toString()
+comment3.params=
+comment3.target=java.lang.String\ getincognita()
+comment4.params=incognita
+comment4.target=void\ setincognita(java.lang.String)
+comment5.params=
+comment5.target=int\ getvalor()
+comment6.params=valor
+comment6.target=void\ setvalor(int)
+comment7.params=
+comment7.target=int\ getpotencia()
+comment8.params=potencia
+comment8.target=void\ setpotencia(int)
+numComments=9
