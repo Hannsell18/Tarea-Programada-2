@@ -88,4 +88,44 @@ public class Lista
             }
         }
     }
+    
+    /**
+     * Permite realizar la suma entre monomios, de ser posible...
+     */
+    public void suma(){
+        Nodo comparado = inicio;
+        Nodo siguienteNodo = comparado.getSiguiente();
+        Nodo temporal;
+        int resultado;
+        for (int contador = 0; contador < indice; contador++){
+            while (comparado != null && siguienteNodo != null){
+                if (comparado.getExponente() == siguienteNodo.getExponente()){                    
+                    resultado = comparado.getValor() + siguienteNodo.getValor();
+                    comparado.setValor(resultado);
+                    if (siguienteNodo.getSiguiente() != null){
+                        temporal = siguienteNodo.getSiguiente();
+                        comparado.setSiguiente(temporal);
+                    }
+                    else{
+                        temporal = comparado;
+                        while (temporal.getSiguiente() != siguienteNodo){
+                            temporal = temporal.getSiguiente();
+                        }
+                        temporal.setSiguiente(null);
+                    }
+                    indice --;
+                    siguienteNodo = comparado.getSiguiente();
+                }
+                else{
+                    siguienteNodo = siguienteNodo.getSiguiente();
+                }
+            }
+            if(comparado.getSiguiente() != null){
+                comparado = comparado.getSiguiente();
+                if (comparado.getSiguiente() != null){
+                    siguienteNodo = comparado.getSiguiente();
+                }
+            }
+        }
+    }
 }
