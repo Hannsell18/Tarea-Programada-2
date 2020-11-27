@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.target=Lista
+comment0.text=\r\n\ Se\ encarga\ del\ manejo\ de\ listas\ para\ la\ ecuaci\u00F3n.\r\n\ \r\n\ @author\ Rodrigo\ Mendoza\ Quesada.\r\n\ @version\ 17-11-2020.\r\n
+comment1.params=
+comment1.target=Lista()
+comment1.text=\r\n\ Constructor\ por\ defecto\ de\ la\ clase.\r\n
+comment2.params=valor\ incognita\ exponente
+comment2.target=void\ agregar(int,\ java.lang.String,\ int)
+comment2.text=\r\n\ M\u00E9todo\ encargado\ de\ crear\ y\ agregar\ un\ nuevo\ elemento.\r\n\ @param\ int\ valor\ Valor\ de\ la\ constante.\r\n\ @param\ String\ incognita\ \ Incognita\ de\ la\ ecuaci\u00F3n.\r\n\ @param\ int\ exponente\ Contiene\ el\ exponente\ de\ la\ ecuaci\u00F3n.\r\n
+comment3.params=
+comment3.target=Nodo\ getInicio()
+comment3.text=\r\n\ Permite\ obtener\ el\ primer\ nodo\ de\ la\ lista.\r\n\ @return\ Nodo\ Contiene\ el\ valor\ de\ inicio\ de\ la\ lista\ de\ ecuaciones.\r\n
+comment4.params=
+comment4.target=int\ getIndice()
+comment4.text=\r\n\ Permite\ obtener\ el\ indice\ de\ la\ lista.\r\n\ @return\ int.\r\n
+comment5.params=inicio\ ecuacion
+comment5.target=java.lang.String\ dato(Nodo,\ java.lang.String)
+comment5.text=\r\n\ Retorna\ de\ forma\ recursiva\ la\ lista\ de\ ecuaciones.\r\n\ @param\ Nodo\ inicio\ \ \ Contiene\ el\ primer\ nodo\ de\ la\ lista\ de\ ecuaciones.\r\n\ @param\ String\ ecuacion\ \ \ Contiene\ una\ lista\ donde\ se\ anotan\ las\ ecuaciones.\r\n
+comment6.params=ecuacion
+comment6.target=void\ setEcuacion(java.lang.String)
+comment6.text=\r\n\ Permite\ dividir\ el\ String\ en\ operaciones\ con\ monomios.\r\n\ @param\ String\ ecuacion\ \ \ Contiene\ la\ ecuaci\u00F3n\ a\ analizar.\r\n
+numComments=7
