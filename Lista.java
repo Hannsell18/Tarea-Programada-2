@@ -23,12 +23,13 @@ public class Lista
 
     /**
      * Método encargado de crear y agregar un nuevo elemento.
+     * @param String signo  Define si es positivo o negativo.
      * @param int valor Valor de la constante.
      * @param String incognita  Incognita de la ecuación.
      * @param int exponente Contiene el exponente de la ecuación.
      */
-    public void agregar(int valor, String incognita, int exponente){
-        Nodo alfa = new Nodo (valor, incognita, exponente);
+    public void agregar(String signo, int valor, String incognita, int exponente){
+        Nodo alfa = new Nodo (signo, valor, incognita, exponente);
         if (inicio == null){
             inicio = alfa;
             indice ++;
@@ -99,9 +100,18 @@ public class Lista
         int resultado;
         for (int contador = 0; contador < indice; contador++){
             while (comparado != null && siguienteNodo != null){
-                if (comparado.getExponente() == siguienteNodo.getExponente()){                    
-                    resultado = comparado.getValor() + siguienteNodo.getValor();
-                    comparado.setValor(resultado);
+                if (comparado.getExponente() == siguienteNodo.getExponente()){
+                    if (comparado.getSigno() == siguienteNodo.getSigno()){
+                        resultado = comparado.getValor() + siguienteNodo.getValor();
+                        comparado.setValor(resultado);
+                    }
+                    else if (comparado.getSigno() != siguienteNodo.getSigno()) {
+                        if (comparado.getValor() < siguienteNodo.getValor()){
+                            comparado.setSigno(siguienteNodo.getSigno());
+                        }
+                        resultado = Math.abs(comparado.getValor() - siguienteNodo.getValor());
+                        comparado.setValor(resultado);
+                    }
                     if (siguienteNodo.getSiguiente() != null){
                         temporal = siguienteNodo.getSiguiente();
                         comparado.setSiguiente(temporal);

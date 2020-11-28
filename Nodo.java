@@ -8,6 +8,7 @@
 public class Nodo
 {
     //Instancia de variables.
+    private String signo;
     private int valor;
     private String incognita;
     private int exponente;
@@ -19,6 +20,7 @@ public class Nodo
     public Nodo()
     {
         //Inicializción de variables.
+        signo = "+";
         valor = 0;
         incognita = "x";
         exponente = 0;
@@ -27,15 +29,25 @@ public class Nodo
     
     /**
      * Constructor con parámetros de la clase.
+     * @param String signo  Define si es positivo o negativo.
      * @param int valor Valor de la constante.
      * @param String incognita  Incognita de la ecuación.
      * @param int exponente Contiene el exponente de la ecuación.
      */
-    public Nodo(int valor, String incognita, int exponente){
+    public Nodo(String signo, int valor, String incognita, int exponente){
+        this.signo = signo;
         this.valor = valor;
         this.incognita = incognita;
         this.exponente = exponente;
         siguiente = null;
+    }
+    
+    /**
+     * Se encaarga de retornar el signo del nodo.
+     * @return String.
+     */
+    public String getSigno(){
+        return signo;
     }
     
     /**
@@ -60,6 +72,22 @@ public class Nodo
      */
     public int getExponente(){
         return this.exponente;
+    }
+    
+    /**
+     * Retorna el Nodo siguiente.
+     * @return Nodo siguiente   Contiene una referencia hacia el nodo siguiente.
+     */
+    public Nodo getSiguiente(){
+        return siguiente;
+    }
+    
+    /**
+     * Permite establecer el signo.
+     * @param String signo  Contiene el signo del nodo.
+     */
+    public void setSigno(String signo){
+        this.signo = signo;
     }
     
     /**
@@ -95,20 +123,12 @@ public class Nodo
     }
     
     /**
-     * Retorna el Nodo siguiente.
-     * @return Nodo siguiente   Contiene una referencia hacia el nodo siguiente.
-     */
-    public Nodo getSiguiente(){
-        return siguiente;
-    }
-    
-    /**
      * Retorna un String con los datos del nodo.
      * @return String dato  Contiene un String estructurado con los datos
      */
     public String dato(){
         String dato = "";
-        dato = valor + incognita + "^" +exponente +" ";
+        dato = signo + " " + valor + incognita + "^" +exponente +" ";
         return dato;
     }
 }
