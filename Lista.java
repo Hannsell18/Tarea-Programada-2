@@ -45,6 +45,27 @@ public class Lista
     }
     
     /**
+     * Permite eliminar un nodo.
+     * @param Nodo ecuacion Contiene el nodo que será eliminado.
+     */
+    public void eliminar(Nodo ecuacion){
+        Nodo temporal = inicio;
+        while (temporal.getSiguiente() != ecuacion && inicio != ecuacion){
+            temporal = temporal.getSiguiente();
+        }
+        if (inicio == ecuacion){
+            inicio = inicio.getSiguiente();
+        }
+        else if (temporal.getSiguiente().getSiguiente() != null){
+            temporal.setSiguiente(temporal.getSiguiente().getSiguiente());
+        }
+        else{
+            temporal.setSiguiente(null);
+        }
+        indice --;
+    }
+    
+    /**
      * Permite obtener el primer nodo de la lista.
      * @return Nodo Contiene el valor de inicio de la lista de ecuaciones.
      */
@@ -102,28 +123,18 @@ public class Lista
             while (comparado != null && siguienteNodo != null){
                 if (comparado.getExponente() == siguienteNodo.getExponente()){
                     if (comparado.getSigno() == siguienteNodo.getSigno()){
-                        resultado = comparado.getValor() + siguienteNodo.getValor();
-                        comparado.setValor(resultado);
+                        comparado.setValor(Operaciones.suma(comparado, siguienteNodo));
                     }
                     else if (comparado.getSigno() != siguienteNodo.getSigno()) {
                         if (comparado.getValor() < siguienteNodo.getValor()){
                             comparado.setSigno(siguienteNodo.getSigno());
                         }
-                        resultado = Math.abs(comparado.getValor() - siguienteNodo.getValor());
-                        comparado.setValor(resultado);
+                        comparado.setValor(Operaciones.resta(comparado, siguienteNodo));
                     }
-                    if (siguienteNodo.getSiguiente() != null){
-                        temporal = siguienteNodo.getSiguiente();
-                        comparado.setSiguiente(temporal);
+                    eliminar(siguienteNodo);
+                    if (comparado.getValor() == 0){
+                        eliminar(comparado);
                     }
-                    else{
-                        temporal = comparado;
-                        while (temporal.getSiguiente() != siguienteNodo){
-                            temporal = temporal.getSiguiente();
-                        }
-                        temporal.setSiguiente(null);
-                    }
-                    indice --;
                     siguienteNodo = comparado.getSiguiente();
                 }
                 else{

@@ -9,19 +9,19 @@ public class Operaciones
 {
    /**
     * Permite la suma de dos números enteros.
-    * @param int numero1    Contiene el primer entero.
-    * @param int numero2    Contiene el segundo entero.
+    * @param Nodo ecuacion1    Contiene la primer ecuación.
+    * @param Nodo ecuacion2    Contiene la seguna ecuación.
     */
-   public static int suma(int numero1, int numero2){
-       return numero1 + numero2;
+   public static int suma(Nodo ecuacion1, Nodo ecuacion2){
+       return ecuacion1.getValor() + ecuacion2.getValor();
    }
    
    /**
     * Permite la resta de dos números enteros.
-    * @param int numero1    Contiene el primer entero.
-    * @param int numero2    Contiene el segundo entero.
+    * @param Nodo ecuacion1    Contiene la primer ecuación.
+    * @param Nodo ecuacion2    Contiene la seguna ecuación.
     */
-   public static int resta(int numero1, int numero2){
-       return Math.abs(numero1 + numero2);
+   public static int resta(Nodo ecuacion1, Nodo ecuacion2){
+       return Math.abs(ecuacion1.getValor() - ecuacion2.getValor());
    }
 }

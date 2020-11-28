@@ -1,10 +1,10 @@
 #BlueJ class context
 comment0.target=Operaciones
 comment0.text=\r\n\ Se\ encarga\ de\ realizar\ las\ operaciones\ aritmeticas.\r\n\ \r\n\ @author\ Rodrigo\ Mendoza\ Quesada,\ C04813\r\n\ @version\ (27-11-2020)\r\n
-comment1.params=numero1\ numero2
-comment1.target=int\ suma(int,\ int)
-comment1.text=\r\n\ Permite\ la\ suma\ de\ dos\ n\u00FAmeros\ enteros.\r\n\ @param\ int\ numero1\ \ \ \ Contiene\ el\ primer\ entero.\r\n\ @param\ int\ numero2\ \ \ \ Contiene\ el\ segundo\ entero.\r\n
-comment2.params=numero1\ numero2
-comment2.target=int\ resta(int,\ int)
-comment2.text=\r\n\ Permite\ la\ resta\ de\ dos\ n\u00FAmeros\ enteros.\r\n\ @param\ int\ numero1\ \ \ \ Contiene\ el\ primer\ entero.\r\n\ @param\ int\ numero2\ \ \ \ Contiene\ el\ segundo\ entero.\r\n
+comment1.params=ecuacion1\ ecuacion2
+comment1.target=int\ suma(Nodo,\ Nodo)
+comment1.text=\r\n\ Permite\ la\ suma\ de\ dos\ n\u00FAmeros\ enteros.\r\n\ @param\ Nodo\ ecuacion1\ \ \ \ Contiene\ la\ primer\ ecuaci\u00F3n.\r\n\ @param\ Nodo\ ecuacion2\ \ \ \ Contiene\ la\ seguna\ ecuaci\u00F3n.\r\n
+comment2.params=ecuacion1\ ecuacion2
+comment2.target=int\ resta(Nodo,\ Nodo)
+comment2.text=\r\n\ Permite\ la\ resta\ de\ dos\ n\u00FAmeros\ enteros.\r\n\ @param\ Nodo\ ecuacion1\ \ \ \ Contiene\ la\ primer\ ecuaci\u00F3n.\r\n\ @param\ Nodo\ ecuacion2\ \ \ \ Contiene\ la\ seguna\ ecuaci\u00F3n.\r\n
 numComments=3
