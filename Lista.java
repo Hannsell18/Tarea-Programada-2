@@ -10,6 +10,76 @@ public class Lista
     //Instania de variables.
     private Nodo inicio;
     private int indice;
+    public int valor=0, exponente=1;
+    public String signo= "+", operadorLista="+";
+
+    /**
+     * Permite dividir el String en operaciones con monomios.
+     * @param String ecuacion   Contiene la ecuación a analizar.
+     */
+    public void setEcuacion(String ecuacion){
+        char temporal;
+        int longitud = ecuacion.length();
+
+        for (int contador = 0; contador < longitud; contador++){
+            temporal = ecuacion.charAt(contador);
+
+            //Analizar si hay un signo antes del parentesis abierto. A la vez, otorgarle el valor a la variable.
+            if(temporal=="(".charAt(0)){ 
+                //INICIAR NUEVA LISTA
+                Lista alfa = new Lista();
+
+                if(contador>0 && ecuacion.charAt(contador-1)=="-".charAt(0)){
+                    operadorLista="-";
+                }else if(contador>0 && ecuacion.charAt(contador-1)=="*".charAt(0)){
+                    operadorLista="*";
+                }else{
+                    operadorLista="+";
+                }
+            }
+
+            //Buscar el valor.
+            if (temporal == "x".charAt(0) && (Character.isDigit(ecuacion.charAt(contador-1)))){
+                if(Character.isDigit(ecuacion.charAt(contador-2))){
+                    valor=22;
+                    //Character.getNumericValue(ecuacion.charAt(contador-1) + ecuacion.charAt(contador-2));
+                    //Aquí falla la unión. 
+                }else{
+                    valor=Character.getNumericValue(ecuacion.charAt(contador-1));
+                }      
+            }
+            if(Character.isDigit(temporal)){
+                valor=temporal;
+            }
+
+            //Asignar el valor de los operadores. 
+            if(temporal == "-".charAt(0)){
+                signo="-";
+            } 
+            if(temporal == "*".charAt(0)){
+                signo="*";
+            }
+            if(temporal == "+".charAt(0)){
+                signo="+";
+            }
+
+            //Asignar el valor del exponente después del "^". Y mandar la información del nodo. 
+            if(temporal =="^".charAt(0)){
+                exponente = Character.getNumericValue(ecuacion.charAt(contador+1));
+                agregar(operadorLista, valor, "X", exponente, signo);
+                operadorLista="";
+                signo="+";
+            }
+
+            if(temporal==")".charAt(0)){                
+                signo= Character.toString(temporal);
+
+                operadorLista="";
+                //CERRAR LISTA. 
+
+            }
+        }
+    }
 
     /**
      * Constructor por defecto de la clase.
@@ -23,13 +93,12 @@ public class Lista
 
     /**
      * Método encargado de crear y agregar un nuevo elemento.
-     * @param String signo  Define si es positivo o negativo.
      * @param int valor Valor de la constante.
      * @param String incognita  Incognita de la ecuación.
      * @param int exponente Contiene el exponente de la ecuación.
      */
-    public void agregar(String signo, int valor, String incognita, int exponente){
-        Nodo alfa = new Nodo (signo, valor, incognita, exponente);
+    public void agregar(String operadorLista,int valor, String incognita, int exponente, String signo){
+        Nodo alfa = new Nodo (operadorLista, valor, incognita, exponente, signo);
         if (inicio == null){
             inicio = alfa;
             indice ++;
@@ -43,7 +112,35 @@ public class Lista
             indice ++;
         }
     }
-    
+
+    /**
+     * Permite obtener el primer nodo de la lista.
+     * @return Nodo Contiene el valor de inicio de la lista de ecuaciones.
+     */
+    public Nodo getInicio(){
+        return inicio;
+    }
+
+    /**
+     * Permite obtener el indice de la lista.
+     * @return int.
+     */
+    public int getIndice(){
+        return indice;
+    }
+
+    /**
+     * Retorna de forma recursiva la lista de ecuaciones.
+     * @param Nodo inicio   Contiene el primer nodo de la lista de ecuaciones.
+     * @param String ecuacion   Contiene una lista donde se anotan las ecuaciones.
+     */
+    public String dato(Nodo inicio, String ecuacion){
+        if (inicio.getSiguiente() != null){
+            return dato(inicio.getSiguiente(), ecuacion += inicio.dato());
+        }
+        return ecuacion + inicio.dato();
+    }
+
     /**
      * Permite eliminar un nodo.
      * @param Nodo ecuacion Contiene el nodo que será eliminado.
@@ -63,54 +160,8 @@ public class Lista
             temporal.setSiguiente(null);
         }
         indice --;
-    }
-    
-    /**
-     * Permite obtener el primer nodo de la lista.
-     * @return Nodo Contiene el valor de inicio de la lista de ecuaciones.
-     */
-    public Nodo getInicio(){
-        return inicio;
-    }
-    
-    /**
-     * Permite obtener el indice de la lista.
-     * @return int.
-     */
-    public int getIndice(){
-        return indice;
-    }
-    
-    /**
-     * Retorna de forma recursiva la lista de ecuaciones.
-     * @param Nodo inicio   Contiene el primer nodo de la lista de ecuaciones.
-     * @param String ecuacion   Contiene una lista donde se anotan las ecuaciones.
-     */
-    public String dato(Nodo inicio, String ecuacion){
-        if (inicio.getSiguiente() != null){
-            return dato(inicio.getSiguiente(), ecuacion += inicio.dato());
-        }
-        return ecuacion + inicio.dato();
-    }
-    
-    /**
-     * Permite dividir el String en operaciones con monomios.
-     * @param String ecuacion   Contiene la ecuación a analizar.
-     */
-    public void setEcuacion(String ecuacion){
-        char temporal;
-        int longitud = ecuacion.length();
-        for (int contador = 0; contador < longitud; contador++){
-            temporal = ecuacion.charAt(contador);
-            if (temporal == "(".charAt(0)){
-                System.out.println("Abro una nueva lista...");
-            }
-            else if (temporal == ")".charAt(0)){
-                System.out.println("Cierro la lista...");
-            }
-        }
-    }
-    
+     }
+
     /**
      * Permite realizar la suma entre monomios, de ser posible...
      */
@@ -148,5 +199,6 @@ public class Lista
                 }
             }
         }
-    }
+      }
+
 }

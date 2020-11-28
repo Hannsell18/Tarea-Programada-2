@@ -2,52 +2,53 @@
 /**
  * Write a description of class Nodo here.
  * 
- * @author Rodrigo Mendoza Quesada.
+ * @author Rodrigo Mendoza Quesada/ Hannsell Solís Ramírez.
  * @version 17-11-2020.
  */
 public class Nodo
 {
     //Instancia de variables.
-    private String signo;
     private int valor;
     private String incognita;
     private int exponente;
     private Nodo siguiente;
-
+    private String signo, operadorLista;
+   
     /**
      * Constructor por defecto de la clase.
      */
     public Nodo()
     {
         //Inicializción de variables.
-        signo = "+";
         valor = 0;
         incognita = "x";
         exponente = 0;
+        signo="";
+        operadorLista="+";
         siguiente = null;
     }
     
     /**
      * Constructor con parámetros de la clase.
-     * @param String signo  Define si es positivo o negativo.
      * @param int valor Valor de la constante.
      * @param String incognita  Incognita de la ecuación.
      * @param int exponente Contiene el exponente de la ecuación.
      */
-    public Nodo(String signo, int valor, String incognita, int exponente){
-        this.signo = signo;
+    public Nodo(String operadorLista,int valor, String incognita, int exponente, String signo){
+        this.operadorLista= operadorLista;
         this.valor = valor;
         this.incognita = incognita;
         this.exponente = exponente;
+        this.signo=signo;
         siguiente = null;
     }
     
     /**
-     * Se encaarga de retornar el signo del nodo.
-     * @return String.
+     * Retorna el operador antes de los parentesis ")".
+     * @return int  Contiene el valor númerico del nodo.
      */
-    public String getSigno(){
-        return signo;
+    public String getOperadorLista(){
+        return this.operadorLista;
     }
     
     /**
@@ -75,19 +76,19 @@ public class Nodo
     }
     
     /**
-     * Retorna el Nodo siguiente.
-     * @return Nodo siguiente   Contiene una referencia hacia el nodo siguiente.
+     * Retorna el signo de la ecuación
+     * @return String Contiene el signo de la ecuación.
      */
-    public Nodo getSiguiente(){
-        return siguiente;
+    public String getSigno(){
+        return this.signo;
     }
     
-    /**
-     * Permite establecer el signo.
-     * @param String signo  Contiene el signo del nodo.
+     /**
+     * Retorna el operador antes de los parentesis ")".
+     * @return int  Contiene el valor númerico del nodo.
      */
-    public void setSigno(String signo){
-        this.signo = signo;
+    public void setOperadorLista(){
+         this.operadorLista=operadorLista;
     }
     
     /**
@@ -114,6 +115,14 @@ public class Nodo
         this.exponente = exponente;
     }
     
+     /**
+     * Retorna el signo de la ecuación
+     * @return String Contiene el signo de la ecuación.
+     */
+    public void setSigno(String signo){
+        this.signo=signo;
+    }
+    
     /**
      * Permite establecer el valor del siguiente Nodo.
      * @param Nodo siguiente    Contiene el Nodo que será asignado.
@@ -123,12 +132,20 @@ public class Nodo
     }
     
     /**
+     * Retorna el Nodo siguiente.
+     * @return Nodo siguiente   Contiene una referencia hacia el nodo siguiente.
+     */
+    public Nodo getSiguiente(){
+        return siguiente;
+    }
+    
+    /**
      * Retorna un String con los datos del nodo.
      * @return String dato  Contiene un String estructurado con los datos
      */
     public String dato(){
         String dato = "";
-        dato = signo + " " + valor + incognita + "^" +exponente +" ";
+        dato = operadorLista + signo + valor + incognita + "^" +exponente;
         return dato;
     }
 }
