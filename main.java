@@ -14,5 +14,6 @@ public class main{
         alfa.suma();
         System.out.println(alfa.getIndice());
         System.out.println(alfa.dato(alfa.getInicio(),""));
+        //Intento.
     }
 }
