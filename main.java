@@ -7,7 +7,7 @@ public class main{
         //alfa.agregar(8,"X",2);
         //alfa.agregar(12,"X",3);
         Operaciones alfa = new Operaciones();
-        String ecuacion=JOptionPane.showInputDialog("Por favor digite la ecuación que desea simplificar ;)");
+        String ecuacion=JOptionPane.showInputDialog("Por favor digite el par de ecuaciones que desea simplificar ;)");
         alfa.setEcuacion(ecuacion);
         //alfa.setEcuacion(ecuacion);
         //System.out.println(alfa.getIndice());

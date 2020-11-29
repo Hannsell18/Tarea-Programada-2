@@ -9,12 +9,14 @@ public class Operaciones
 {
     //Instancia de variables.
     private Lista[] listaEcuaciones;
+    private String operadorDeListas;
     
     /**
      * Constructor por defecto de la clase.
      */
     public Operaciones(){
         listaEcuaciones = new Lista[2];
+        operadorDeListas = "*";
     }
     
     /**
@@ -51,7 +53,7 @@ public class Operaciones
             if (temporal == "(".charAt(0)){
                 listaEcuaciones[indice] = new Lista();
             }
-            else if (temporal == "-".charAt(0) && !incognita){
+            else if (temporal == "-".charAt(0) && !incognita && (ecuacion.charAt(contador+1)) != "(".charAt(0)){
                 signoNodo = "-";
             }
             else if (Character.isDigit(temporal) && !incognita){
@@ -63,22 +65,27 @@ public class Operaciones
             else if (Character.isDigit(temporal) && incognita){
                 valorExponente += (Character.toString(temporal));
             }
-            else if (temporal == "+".charAt(0) || temporal == "-".charAt(0)){
+            else if ((temporal == "+".charAt(0) || temporal == "-".charAt(0)) &&
+                     (Character.isDigit(ecuacion.charAt(contador+1)))){
                 listaEcuaciones[indice].agregar(Integer.parseInt(valor), "X", Integer.parseInt(valorExponente), signoNodo);
                 valor = ""; valorExponente = ""; signoNodo = Character.toString(temporal); incognita = false;
+            }
+            else if ((temporal == "+".charAt(0) || temporal == "-".charAt(0) || temporal == "*".charAt(0) || 
+                     temporal == "/".charAt(0)) && (ecuacion.charAt(contador+1)) == "(".charAt(0)){
+                operadorDeListas = (Character.toString(temporal));
             }
             else if (temporal == ")".charAt(0)){
                 listaEcuaciones[indice].agregar(Integer.parseInt(valor), "X", Integer.parseInt(valorExponente), signoNodo);
                 valor = ""; valorExponente = ""; signoNodo = "+"; incognita = false;
                 if (indice == 0){
                     indice = 1;
-                    contador = -1;
+                    //contador = -1;
                 }
             }
         }
-        System.out.println(listaEcuaciones[0].dato() + " * " + listaEcuaciones[1].dato());
+        System.out.println(listaEcuaciones[0].dato() + operadorDeListas + listaEcuaciones[1].dato());
         listaEcuaciones[0].simplificar();
         listaEcuaciones[1].simplificar();
-        System.out.println(listaEcuaciones[0].dato() + " * " + listaEcuaciones[1].dato());
+        System.out.println(listaEcuaciones[0].dato() + operadorDeListas + listaEcuaciones[1].dato());
     }
 }
