@@ -6,7 +6,6 @@ public class main{
         //alfa.agregar(4,"X",1);
         //alfa.agregar(8,"X",2);
         //alfa.agregar(12,"X",3);
-        
         String ecuacion=JOptionPane.showInputDialog("Por favor digite la ecuación que desea simplificar ;)");
         alfa.setEcuacion(ecuacion);
         System.out.println(alfa.getIndice());

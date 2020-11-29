@@ -11,7 +11,7 @@ public class Lista
     private Nodo inicio;
     private int indice;
     public int valor=0, exponente=1;
-    public String signo= "+", operadorLista="+";
+    public String signo= "+", operadorLista="+", signoEntreEcuac="";
 
     /**
      * Permite dividir el String en operaciones con monomios.
@@ -20,6 +20,7 @@ public class Lista
     public void setEcuacion(String ecuacion){
         char temporal;
         int longitud = ecuacion.length();
+        String operadorEntreEcua="";
 
         for (int contador = 0; contador < longitud; contador++){
             temporal = ecuacion.charAt(contador);
@@ -37,47 +38,52 @@ public class Lista
                     operadorLista="+";
                 }
             }
-
-            //Buscar el valor.
+            
+            //Guardar el operando que está entre los parentesis.
+            if(temporal==")".charAt(0) && contador<longitud-1){
+                signoEntreEcuac=Character.toString(ecuacion.charAt(contador+1));
+                System.out.println(signoEntreEcuac);
+             }
+            //Buscar el valor y operador.
             if (temporal == "x".charAt(0) && (Character.isDigit(ecuacion.charAt(contador-1)))){
                 if(Character.isDigit(ecuacion.charAt(contador-2))){
-                    valor=22;
-                    //Character.getNumericValue(ecuacion.charAt(contador-1) + ecuacion.charAt(contador-2));
-                    //Aquí falla la unión. 
+                    String valor1=Character.toString(ecuacion.charAt(contador-2));
+                    String valor2=Character.toString(ecuacion.charAt(contador-1));
+                    String valorCompleto=valor1+valor2;
+                    valor= Integer.parseInt(valorCompleto);
+                    if(ecuacion.charAt(contador-3)=="-".charAt(0)){
+                        signo="-";                   
+                    }else{
+                        signo="+";
+                    }
                 }else{
                     valor=Character.getNumericValue(ecuacion.charAt(contador-1));
+                    if(ecuacion.charAt(contador-2)=="-".charAt(0)){
+                        signo="-";
+                    }else{
+                        signo="+";
+                    }
                 }      
             }
-            if(Character.isDigit(temporal)){
-                valor=temporal;
-            }
+            
+            //Si solo sale un número.
+            //if(Character.isDigit(temporal) && ecuacion.charAt(contador-1)!="^".charAt(0)){
+              //  valor=Character.getNumericValue(temporal);
+              //  exponente=1;
+              //  operadorLista="";
+              //  signoEntreEcuac="";
+              //  agregar(operadorLista, valor, "X", exponente, signo, signoEntreEcuac);
+            //}
 
-            //Asignar el valor de los operadores. 
-            if(temporal == "-".charAt(0)){
-                signo="-";
-            } 
-            if(temporal == "*".charAt(0)){
-                signo="*";
-            }
-            if(temporal == "+".charAt(0)){
-                signo="+";
-            }
-
-            //Asignar el valor del exponente después del "^". Y mandar la información del nodo. 
+            //Asignar el valor del exponente después del "^". Y mandar la información del nodo.
             if(temporal =="^".charAt(0)){
                 exponente = Character.getNumericValue(ecuacion.charAt(contador+1));
-                agregar(operadorLista, valor, "X", exponente, signo);
+                agregar(operadorLista, valor, "X", exponente, signo, signoEntreEcuac);
                 operadorLista="";
                 signo="+";
             }
-
-            if(temporal==")".charAt(0)){                
-                signo= Character.toString(temporal);
-
-                operadorLista="";
-                //CERRAR LISTA. 
-
-            }
+           
+            
         }
     }
 
@@ -97,8 +103,8 @@ public class Lista
      * @param String incognita  Incognita de la ecuación.
      * @param int exponente Contiene el exponente de la ecuación.
      */
-    public void agregar(String operadorLista,int valor, String incognita, int exponente, String signo){
-        Nodo alfa = new Nodo (operadorLista, valor, incognita, exponente, signo);
+    public void agregar(String operadorLista,int valor, String incognita, int exponente, String signo, String signoEntreEcuac){
+        Nodo alfa = new Nodo (operadorLista, valor, incognita, exponente, signo, signoEntreEcuac);
         if (inicio == null){
             inicio = alfa;
             indice ++;
@@ -160,7 +166,7 @@ public class Lista
             temporal.setSiguiente(null);
         }
         indice --;
-     }
+    }
 
     /**
      * Permite realizar la suma entre monomios, de ser posible...
@@ -199,6 +205,6 @@ public class Lista
                 }
             }
         }
-      }
+    }
 
 }

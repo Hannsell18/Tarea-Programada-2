@@ -12,7 +12,7 @@ public class Nodo
     private String incognita;
     private int exponente;
     private Nodo siguiente;
-    private String signo, operadorLista;
+    private String signo, operadorLista, signoEntreEcuac;
    
     /**
      * Constructor por defecto de la clase.
@@ -34,12 +34,13 @@ public class Nodo
      * @param String incognita  Incognita de la ecuación.
      * @param int exponente Contiene el exponente de la ecuación.
      */
-    public Nodo(String operadorLista,int valor, String incognita, int exponente, String signo){
+    public Nodo(String operadorLista,int valor, String incognita, int exponente, String signo, String signoEntreEcuac){
         this.operadorLista= operadorLista;
         this.valor = valor;
         this.incognita = incognita;
         this.exponente = exponente;
         this.signo=signo;
+        this.signoEntreEcuac=signoEntreEcuac;
         siguiente = null;
     }
     
@@ -80,6 +81,14 @@ public class Nodo
      * @return String Contiene el signo de la ecuación.
      */
     public String getSigno(){
+        return this.signo;
+    }
+   
+    /**
+     * Retorna el signo de la ecuación
+     * @return String Contiene el signo de la ecuación.
+     */
+    public String getSignoEntreEcuac(){
         return this.signo;
     }
     
@@ -130,6 +139,14 @@ public class Nodo
     public void setSiguiente(Nodo siguiente){
         this.siguiente = siguiente;
     }
+   
+    /**
+     * Retorna el operador antes de los parentesis ")".
+     * @return int  Contiene el valor númerico del nodo.
+     */
+    public void setSignoEntreEcuac(){
+         this.operadorLista=operadorLista;
+    }
     
     /**
      * Retorna el Nodo siguiente.
@@ -139,13 +156,16 @@ public class Nodo
         return siguiente;
     }
     
+    
+    
     /**
      * Retorna un String con los datos del nodo.
      * @return String dato  Contiene un String estructurado con los datos
      */
     public String dato(){
         String dato = "";
-        dato = operadorLista + signo + valor + incognita + "^" +exponente;
+        dato = operadorLista + signo + valor + incognita + "^" + exponente + signoEntreEcuac;
         return dato;
+        //var myArr = Array.prototype.slice.call(listaecuacion, 0);
     }
 }
