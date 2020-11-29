@@ -11,9 +11,9 @@ public class Nodo
     private int valor;
     private String incognita;
     private int exponente;
+    private String signo;
     private Nodo siguiente;
-    private String signo, operadorLista;
-   
+
     /**
      * Constructor por defecto de la clase.
      */
@@ -23,34 +23,24 @@ public class Nodo
         valor = 0;
         incognita = "x";
         exponente = 0;
-        signo="";
-        operadorLista="+";
+        signo="+";
         siguiente = null;
     }
-    
+
     /**
      * Constructor con parámetros de la clase.
      * @param int valor Valor de la constante.
      * @param String incognita  Incognita de la ecuación.
      * @param int exponente Contiene el exponente de la ecuación.
      */
-    public Nodo(String operadorLista,int valor, String incognita, int exponente, String signo){
-        this.operadorLista= operadorLista;
+    public Nodo(int valor, String incognita, int exponente, String signo){
         this.valor = valor;
         this.incognita = incognita;
         this.exponente = exponente;
         this.signo=signo;
         siguiente = null;
     }
-    
-    /**
-     * Retorna el operador antes de los parentesis ")".
-     * @return int  Contiene el valor númerico del nodo.
-     */
-    public String getOperadorLista(){
-        return this.operadorLista;
-    }
-    
+
     /**
      * Retorna el valor del nodo.
      * @return int  Contiene el valor númerico del nodo.
@@ -58,7 +48,7 @@ public class Nodo
     public int getValor(){
         return this.valor;
     }
-    
+
     /**
      * Retorna el valor de la incognita.
      * @return String  Contiene la incognita de la ecuación.
@@ -66,7 +56,7 @@ public class Nodo
     public String getIncognita(){
         return this.incognita;
     }
-    
+
     /**
      * Retorna el exponente del nodo.
      * @return int  Contiene el exponente del nodo.
@@ -74,7 +64,7 @@ public class Nodo
     public int getExponente(){
         return this.exponente;
     }
-    
+
     /**
      * Retorna el signo de la ecuación
      * @return String Contiene el signo de la ecuación.
@@ -82,15 +72,15 @@ public class Nodo
     public String getSigno(){
         return this.signo;
     }
-    
-     /**
-     * Retorna el operador antes de los parentesis ")".
-     * @return int  Contiene el valor númerico del nodo.
+
+    /**
+     * Retorna el signo de la ecuación
+     * @return String Contiene el signo de la ecuación.
      */
-    public void setOperadorLista(){
-         this.operadorLista=operadorLista;
+    public String getSignoEntreEcuac(){
+        return this.signo;
     }
-    
+
     /**
      * Permite establecer el valor del nodo.
      * @param int valor Contiene el valor a agregar.
@@ -98,7 +88,7 @@ public class Nodo
     public void setValor(int valor){
         this.valor = valor;
     }
-    
+
     /**
      * Permite establecer la incognita del nodo.
      * @param String incognita Contiene el valor de la incognita a agregar.
@@ -106,7 +96,7 @@ public class Nodo
     public void setIncognita(String incognita){
         this.incognita = incognita;
     }
-    
+
     /**
      * Permite establecer el exponente del nodo.
      * @param int exponente Contiene el exponente a agregar.
@@ -114,15 +104,15 @@ public class Nodo
     public void setExponente(int exponente){
         this.exponente = exponente;
     }
-    
-     /**
+
+    /**
      * Retorna el signo de la ecuación
      * @return String Contiene el signo de la ecuación.
      */
     public void setSigno(String signo){
         this.signo=signo;
     }
-    
+
     /**
      * Permite establecer el valor del siguiente Nodo.
      * @param Nodo siguiente    Contiene el Nodo que será asignado.
@@ -130,7 +120,7 @@ public class Nodo
     public void setSiguiente(Nodo siguiente){
         this.siguiente = siguiente;
     }
-    
+
     /**
      * Retorna el Nodo siguiente.
      * @return Nodo siguiente   Contiene una referencia hacia el nodo siguiente.
@@ -138,14 +128,21 @@ public class Nodo
     public Nodo getSiguiente(){
         return siguiente;
     }
-    
+
     /**
      * Retorna un String con los datos del nodo.
+     * @param Nodo inicio   Contiene el primer nodo de la lista de ecuaciones.
      * @return String dato  Contiene un String estructurado con los datos
      */
-    public String dato(){
+    public String dato(Nodo inicio){
         String dato = "";
-        dato = operadorLista + signo + valor + incognita + "^" +exponente;
+        if (this == inicio && signo == "+"){
+            dato = valor + incognita + "^" + exponente;
+        }
+        else{
+            dato = signo + valor + incognita + "^" + exponente;
+        }
         return dato;
+        //var myArr = Array.prototype.slice.call(listaecuacion, 0);
     }
 }
