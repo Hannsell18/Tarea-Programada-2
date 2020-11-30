@@ -158,8 +158,8 @@ public class Lista
      */
     public String dato(Nodo inicio, String ecuacion){
         if (inicio.getSiguiente() != null){
-            return dato(inicio.getSiguiente(), ecuacion += inicio.dato(inicio));
+            return dato(inicio.getSiguiente(), ecuacion += inicio.dato(this.inicio));
         }
-        return "(" + ecuacion + inicio.dato(inicio) + ")";
+        return "(" + ecuacion + inicio.dato(this.inicio) + ")";
     }
 }

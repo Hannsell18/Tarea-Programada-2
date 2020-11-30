@@ -13,7 +13,7 @@ public class Escribir
     public static void escribir (String respuesta){
         try{
             //Si el archivo no existe lo crea. 
-            FileWriter fw=new FileWriter("Archivos/intento.txt", true);
+            FileWriter fw=new FileWriter("Archivos/respuestas.txt", true);
             fw.write("\n"+ respuesta);
             fw.close();
         }catch(IOException ex){

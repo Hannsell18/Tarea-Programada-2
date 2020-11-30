@@ -22,19 +22,20 @@ public class main{
             ecuacion=JOptionPane.showInputDialog("Por favor digite el par de ecuaciones que desea simplificar ;)");
             alfa.setEcuacion(ecuacion);
             respuesta=alfa.setEcuacion(ecuacion);
-            Escribir.escribir(respuesta);
+            Escribir.escribir(Operaciones.modificarCadena(ecuacion, respuesta));
             System.exit(0);
 
             case "b":
             LeeFichero beta= new LeeFichero();
-            ecuacion=beta.leer();
+            ecuacion=Operaciones.modificarCadena(beta.leer());
             respuesta=alfa.setEcuacion(ecuacion);
+            Escribir.escribir(Operaciones.modificarCadena(ecuacion, respuesta));
             System.exit(0);
 
             case "c":
 
             System.exit(0);
-         }
+        }
     }
 
 }

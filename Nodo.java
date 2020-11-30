@@ -136,7 +136,12 @@ public class Nodo
      */
     public String dato(Nodo inicio){
         String dato = "";
-        dato = (signo + valor + incognita + "^" + exponente);
+        if (this == inicio){
+            dato = (valor + incognita + "^" + exponente);
+        }
+        else{
+            dato = (signo + valor + incognita + "^" + exponente);
+        }
         return dato;
         //var myArr = Array.prototype.slice.call(listaecuacion, 0);
     }
