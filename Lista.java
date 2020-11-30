@@ -2,7 +2,7 @@
 /**
  * Se encarga del manejo de listas para la ecuación.
  * 
- * @author Rodrigo Mendoza Quesada.
+ * @author Rodrigo Mendoza Quesada (C04813)/ Hannsell Solís Ramírez (C07677)
  * @version 17-11-2020.
  */
 public class Lista

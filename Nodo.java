@@ -2,7 +2,7 @@
 /**
  * Write a description of class Nodo here.
  * 
- * @author Rodrigo Mendoza Quesada/ Hannsell Solís Ramírez.
+ * @author Rodrigo Mendoza Quesada (C04813)/ Hannsell Solís Ramírez (C07677)
  * @version 17-11-2020.
  */
 public class Nodo

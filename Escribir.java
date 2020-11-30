@@ -5,8 +5,8 @@ import java.io.*;
 /**
  * Write a description of class escribir here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Rodrigo Mendoza Quesada (C04813)/ Hannsell Solís Ramírez (C07677)
+ * @version (29-11-2020)
  */
 public class Escribir
 {

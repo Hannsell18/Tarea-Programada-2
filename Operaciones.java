@@ -2,7 +2,7 @@
     /**
      * Se encarga de realizar las operaciones aritmeticas.
      * 
-     * @author Rodrigo Mendoza Quesada, C04813
+     * @author Rodrigo Mendoza Quesada (C04813)/ Hannsell Solís Ramírez (C07677)
      * @version (27-11-2020)
      */
     public class Operaciones

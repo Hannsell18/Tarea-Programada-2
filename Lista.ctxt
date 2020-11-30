@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Lista
-comment0.text=\r\n\ Se\ encarga\ del\ manejo\ de\ listas\ para\ la\ ecuaci\u00F3n.\r\n\ \r\n\ @author\ Rodrigo\ Mendoza\ Quesada.\r\n\ @version\ 17-11-2020.\r\n
+comment0.text=\r\n\ Se\ encarga\ del\ manejo\ de\ listas\ para\ la\ ecuaci\u00F3n.\r\n\ \r\n\ @author\ Rodrigo\ Mendoza\ Quesada\ (C04813)/\ Hannsell\ Sol\u00EDs\ Ram\u00EDrez\ (C07677)\r\n\ @version\ 17-11-2020.\r\n
 comment1.params=
 comment1.target=Lista()
 comment1.text=\r\n\ Constructor\ por\ defecto\ de\ la\ clase.\r\n
