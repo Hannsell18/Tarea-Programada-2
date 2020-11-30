@@ -1,5 +1,6 @@
 #BlueJ class context
 comment0.target=main
+comment0.text=\r\n\ Se\ encarga\ de\ invocar\ las\ clases\ necesarias\ para\ realizar\ el\ ingreso\ de\ datos\ por\ medio\ de\ archivos\ o\ manualmente.\r\n\ \r\n\ @author\ Rodrigo\ Mendoza\ Quesada\ (C04813)/\ Hannsell\ Sol\u00EDs\ Ram\u00EDrez\ (C07677).\r\n\ @version\ 29-11-2020.\r\n
 comment1.params=args
 comment1.target=void\ main(java.lang.String[])
 numComments=2

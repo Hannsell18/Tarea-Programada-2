@@ -56,8 +56,9 @@ public class Operaciones
     /**
      * Método que se encarga de multiplicar dos ecuaciones.
      * @param Lista[] listaEcuaciones    Contiene un arreglo que a su vez contiene la lista de las ecuaciones.
+     * @return String contiene la ecuación simplificada. 
      */
-    public void multiplicar(Lista[] listaEcuaciones ){
+    public String multiplicar(Lista[] listaEcuaciones ){
         Lista ecuacion1 = listaEcuaciones[0];
         Lista ecuacion2 = listaEcuaciones[1];
         Lista nuevaEcuacion = new Lista();
@@ -85,13 +86,15 @@ public class Operaciones
         System.out.println("Lista multiplicada:\n" + nuevaEcuacion.dato());
         nuevaEcuacion.simplificar();
         System.out.println("Lista simple:\n" + nuevaEcuacion.dato());
+        return nuevaEcuacion.dato();
     }
 
     /**
      * Permite realiar la división de monomios.
      * @param Lista[] listaEcuaciones   Contiene un arreglo que a su vez contiene la lista de las ecuaciones.
+     * @return Ecuación dividida.
      */
-    public void dividir(Lista[] listaEcuaciones){
+    public String dividir(Lista[] listaEcuaciones){
         Lista ecuacion1 = listaEcuaciones[0];
         Lista ecuacion2 = listaEcuaciones[1];
         Nodo temporal1 = ecuacion1.getInicio();
@@ -121,19 +124,22 @@ public class Operaciones
         }
         
         System.out.println("Lista dividida:\n" + ecuacion1.dato() + "/" + ecuacion2.dato());
+        return (ecuacion1.dato() + "/" + ecuacion2.dato());
     }
 
     /**
      * Divide el String en operaciones con monomios.
      * @param String ecuaccion   Contiene la ecuación a analizar.
+     * @return String ecuación simplificada.
      */
-    public void setEcuacion(String ecuacion){
+    public String setEcuacion(String ecuacion){
         char temporal;
         int indice = 0;
         String valor = "";
         String valorExponente = "";
         String signoNodo = "+";
         boolean incognita = false;
+        String respuesta="";
         for (int contador = 0; contador < ecuacion.length(); contador++){
             temporal = ecuacion.charAt(contador);
             if (temporal == "(".charAt(0)){
@@ -171,16 +177,18 @@ public class Operaciones
         System.out.println("Ecuación inicial: \n" + listaEcuaciones[0].dato() + operadorDeListas + listaEcuaciones[1].dato());
         listaEcuaciones[0].simplificar(); listaEcuaciones[1].simplificar();
         System.out.println("Ecuación simple: \n" + listaEcuaciones[0].dato() + operadorDeListas + listaEcuaciones[1].dato());
-        if (operadorDeListas.equals("*")){
-            multiplicar(listaEcuaciones);
+
+       if (operadorDeListas.equals("*")){
+           respuesta=multiplicar(listaEcuaciones);
         }
         else if (operadorDeListas.equals("/")){
             if (listaEcuaciones[0].getIndice() > 1 || listaEcuaciones[1].getIndice() > 1){
                 System.out.println("Solo se pueden dividir monomios simples...");
             }
             else{
-                dividir(listaEcuaciones);
+                respuesta=dividir(listaEcuaciones);
             }
         }
+        return respuesta;
     }
 }

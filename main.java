@@ -1,21 +1,41 @@
 import javax.swing.JOptionPane;
+/**
+ * Se encarga de invocar las clases necesarias para realizar el ingreso de datos por medio de archivos o manualmente.
+ * 
+ * @author Rodrigo Mendoza Quesada (C04813)/ Hannsell Solís Ramírez (C07677).
+ * @version 29-11-2020.
+ */
 public class main{
     public static void main(String args[]){
-        //System.out.print("\f");
-        //Lista alfa = new Lista();
-        //alfa.agregar(4,"X",1);
-        //alfa.agregar(8,"X",2);
-        //alfa.agregar(12,"X",3);
         Operaciones alfa = new Operaciones();
-        String ecuacion=JOptionPane.showInputDialog("Por favor digite el par de ecuaciones que desea simplificar ;)");
-        alfa.setEcuacion(ecuacion);
-        //alfa.setEcuacion(ecuacion);
-        //System.out.println(alfa.getIndice());
-        //System.out.println(alfa.dato(alfa.getInicio(),""));
-        //alfa.suma();
-        //System.out.println(alfa.getIndice());
-        //System.out.println(alfa.dato(alfa.getInicio(),""));
-        //Intento.
-        
+        String ecuacion="";
+        String entrada="";
+        String respuesta;
+        entrada= JOptionPane.showInputDialog ("Menú\n"
+            + "Esta calculadora se encarga de simplificar ecuaciones.\n"
+            + "a. Deseas ingresar el problema manualmente.\n"
+            + "b. Usar un archivo txt donde se encuentre el problema.\n"
+            + "c. SALIR\n");
+        //Elegir entre las opciones
+        switch (entrada.toLowerCase()){
+            case "a":
+            ecuacion=JOptionPane.showInputDialog("Por favor digite el par de ecuaciones que desea simplificar ;)");
+            alfa.setEcuacion(ecuacion);
+            respuesta=alfa.setEcuacion(ecuacion);
+            Escribir.escribir(respuesta);
+            System.exit(0);
+
+            case "b":
+            LeeFichero beta= new LeeFichero();
+            ecuacion=beta.leer();
+            respuesta=alfa.setEcuacion(ecuacion);
+            System.exit(0);
+
+            case "c":
+
+            System.exit(0);
+         }
     }
+
 }
+

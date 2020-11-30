@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=LeeFichero
+comment0.text=\r\n\ Se\ encarga\ de\ analizar\ el\ elarchivo\ .txt,\ convertirlo\ en\ un\ string\ y\ enviarlo\ al\ main.\ \r\n\ \r\n\ @author\ Rodrigo\ Mendoza\ Quesada\ (C04813)/\ Hannsell\ Sol\u00EDs\ Ram\u00EDrez\ (C07677).\r\n\ @version\ 29-11-2020.\r\n
+comment1.params=
+comment1.target=java.lang.String\ leer()
+numComments=2
