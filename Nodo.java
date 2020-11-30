@@ -10,7 +10,7 @@ public class Nodo
     //Instancia de variables.
     private int valor;
     private String incognita;
-    private int exponente;
+    private int exponente = 1;
     private String signo;
     private Nodo siguiente;
 
@@ -22,7 +22,7 @@ public class Nodo
         //Inicializción de variables.
         valor = 0;
         incognita = "x";
-        exponente = 0;
+        exponente = 1;
         signo="+";
         siguiente = null;
     }
@@ -136,12 +136,14 @@ public class Nodo
      */
     public String dato(Nodo inicio){
         String dato = "";
+        /**
         if (this == inicio && signo == "+"){
             dato = valor + incognita + "^" + exponente;
         }
         else{
             dato = signo + valor + incognita + "^" + exponente;
-        }
+        }*/
+        dato = (signo + valor + incognita + "^" + exponente);
         return dato;
         //var myArr = Array.prototype.slice.call(listaecuacion, 0);
     }

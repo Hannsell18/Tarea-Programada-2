@@ -16,5 +16,6 @@ public class main{
         //System.out.println(alfa.getIndice());
         //System.out.println(alfa.dato(alfa.getInicio(),""));
         //Intento.
+        
     }
 }

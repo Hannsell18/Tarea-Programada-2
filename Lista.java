@@ -67,6 +67,13 @@ public class Lista
     }
     
     /**
+     * Permite limpiar la lista.
+     */
+    public void limpiar(){
+        inicio = null;
+    }
+    
+    /**
      * Permite obtener el primer nodo de la lista.
      * @return Nodo Contiene el valor de inicio de la lista de ecuaciones.
      */
